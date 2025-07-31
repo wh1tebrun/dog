@@ -1,0 +1,36 @@
+[
+  {
+    "Shields": [
+      {
+        "Name": "Ranged",
+        "TextureKey": "playerShield_blue",
+        "PositionX": 772.58215,
+        "PositionY": -11115.799,
+        "OffsetX": 0,
+        "OffsetY": 0,
+        "Scale": 1,
+        "IsActive": false,
+        "TimeSinceLastActivation": 213.35869,
+        "TimeActive": 15.016612,
+        "Lifespan": 15,
+        "CoolDown": 15,
+        "Type": 0
+      },
+      {
+        "Name": "melee shield",
+        "TextureKey": "meleeShield",
+        "PositionX": 273,
+        "PositionY": -4203,
+        "OffsetX": 30,
+        "OffsetY": 55,
+        "Scale": 0.2,
+        "IsActive": true,
+        "TimeSinceLastActivation": 0,
+        "TimeActive": 0,
+        "Lifespan": 0,
+        "CoolDown": 0,
+        "Type": 1
+      }
+    ]
+  }
+]

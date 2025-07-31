@@ -1,0 +1,75 @@
+{
+  "maps": [
+    {
+      "fileName": "map1",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "fileName": "map2",
+      "x": 0,
+      "y": -1088
+    },
+    {
+      "fileName": "map3",
+      "x": 0,
+      "y": -2176
+    },
+    {
+      "fileName": "map4",
+      "x": 0,
+      "y": -3264
+    },
+    {
+      "fileName": "checkpoint_map1",
+      "x": 0,
+      "y": -4352
+    },
+    {
+      "fileName": "map5",
+      "x": 0,
+      "y": -5440
+      },
+    {
+      "fileName": "map6",
+      "x": 0,
+      "y": -6528
+     },
+     {
+      "fileName": "map7",
+      "x": 0,
+      "y": -7616
+     },
+     {
+      "fileName": "map8",
+      "x": 0,
+      "y": -8704      
+     },
+     {
+      "fileName": "checkpoint_map1",
+      "x": 0,
+      "y": -9792
+     },
+     {
+      "fileName": "map9",
+      "x": 0,
+      "y": -10880
+     },
+     {
+      "fileName": "map10",
+      "x": 0,
+      "y": -11968
+     },
+     {
+     "filename": "map11",
+     "x": 0,
+     "y": -13056
+     },
+     {
+      "fileName": "map12",
+      "x": 0,
+      "y": -14144
+     }
+  ],
+  "type": "world"
+}

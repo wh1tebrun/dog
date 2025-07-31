@@ -1,0 +1,36 @@
+[
+  {
+    "Shields": [
+      {
+        "Name": "Melee",
+        "TextureKey": "playerShield",
+        "PositionX": 853.72296,
+        "PositionY": -3883.595,
+        "OffsetX": 0,
+        "OffsetY": 0,
+        "Scale": 1,
+        "IsActive": false,
+        "TimeSinceLastActivation": 107.808556,
+        "TimeActive": 15.016612,
+        "Lifespan": 15,
+        "CoolDown": 15,
+        "Type": 1
+      },
+      {
+        "Name": "ranged shield",
+        "TextureKey": "rangedShield",
+        "PositionX": 273,
+        "PositionY": -4203,
+        "OffsetX": 30,
+        "OffsetY": 55,
+        "Scale": 0.2,
+        "IsActive": true,
+        "TimeSinceLastActivation": 0,
+        "TimeActive": 0,
+        "Lifespan": 0,
+        "CoolDown": 0,
+        "Type": 0
+      }
+    ]
+  }
+]

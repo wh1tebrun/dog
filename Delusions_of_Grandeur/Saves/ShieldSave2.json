@@ -1,0 +1,12 @@
+[
+  {
+    "IsActive": false,
+    "TimeSinceLastActivation": 173.28514,
+    "TimeActive": 15.016612,
+    "Lifespan": 15,
+    "CoolDown": 15,
+    "Random": 0,
+    "CentreX": 1098.8545,
+    "CentreY": -12922.406
+  }
+]

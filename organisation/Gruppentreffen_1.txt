@@ -1,0 +1,28 @@
+Spielideen
+- hack n slay
+- plattformer
+- dungeon crawling
+- rts
+- puzzle
+
+Art des Spiels
+- Fantasy
+- Science Fiction
+
+Konkretere Ideen
+- end-boss (2. Spieler?) (mehrere)
+- gewinnt Fähigkeiten, wenn man boss besiegt
+- mehrere maps
+- jede map ein thema -> verschiedene Themen verbinden
+- muss sich durch die Stufen arbeiten bis zum endboss (nur 2, 3 Level)
+- eine map pro Level
+- im Menü Auswahl von Eigenschaften?
+- unterschiedliche Charaktere im Menü
+- Tränke
+- Kontrollierbare Objekte auf der Map?
+- Spiel kürzer halten
+
+Ansicht des Spiels
+- von der Seite
+- 2D
+

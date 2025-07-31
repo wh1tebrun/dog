@@ -1,0 +1,28 @@
+[
+  {
+    "CentreX": 0,
+    "CentreY": -12723.192,
+    "CurrentPositionX": 0,
+    "CurrentPositionY": -12473.192,
+    "ShakeDuration": 0,
+    "ShakeIntensity": 5,
+    "LowerBoundary": -12243.192,
+    "CounterInBeginning": 80603,
+    "M11": 1,
+    "M12": 0,
+    "M13": 0,
+    "M14": 0,
+    "M21": 0,
+    "M22": 1,
+    "M23": 0,
+    "M24": 0,
+    "M31": 0,
+    "M32": 0,
+    "M33": 1,
+    "M34": 0,
+    "M41": 0,
+    "M42": 13291.613,
+    "M43": 0,
+    "M44": 1
+  }
+]

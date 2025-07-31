@@ -1,0 +1,475 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor,colortbl}
+\usepackage{tikz}
+
+\newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+\definecolor{Gray}{gray}{0.85}
+
+\geometry{a4paper, margin=2.5cm}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{Delusions of Grandeur}
+
+\fancyhead[R]{\thepage}
+
+\fancyfoot[C]{Game Design Document}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black, 
+    urlcolor=black,
+    citecolor=black
+}
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{0.5cm}
+{\huge \textbf{Game Design Document}}
+
+\vspace{1cm}
+\includegraphics[width=0.9\textwidth]{Images/delusionsOfGrandeur.png}
+
+\vspace{0.8cm}
+% Autoren
+{\Large \textbf {\underline {Gruppe 12}} \\}
+\vspace{0.5cm}
+{\Large \textbf {Johannes Elsing} \\}
+{\Large \textbf{Melanie Riedel} \\}
+{\Large \textbf{Simon Ganter} \\}
+{\Large \textbf{Leon Winkler} \\}
+{\Large \textbf{John Zeeh}\\}
+{\Large \textbf{Ege Tekin}\\}
+
+\vspace{1cm}
+
+\begin{flushleft}
+    \begin{minipage}{0.3\textwidth}
+        \includegraphics[width=7.5cm]{Images/logo.png}
+    \end{minipage}
+    \hfill
+    \begin{adjustwidth}
+    \begin{minipage}{0.6\textwidth}
+        \textbf{Technische Fakultät} \\
+        Institut für Informatik \\
+        Universität Freiburg \\
+        Freiburg im Breisgau, 2. November 2024
+    \end{minipage}
+    \end{adjustwidth}
+\end{flushleft}
+\includegraphics[width=6.5cm]{Images/freiburg.png}
+\vfill
+{\Large \textbf {\underline {Tutor:}} \\}
+{\Large \textbf{\textit{Dejan Dudukovic}} \\}
+
+\vspace{0.8cm}
+
+
+\end{titlepage}
+\tableofcontents \textbf {Delusions of Grandeur}
+\newpage
+\section{Spielkonzept}
+
+\subsection{Zusammenfassung des Spiels}
+Wer hoch fliegt, fällt tief - und hier vor allem endgültig. In \textit{Delusions of Grandeur} erklimmt ihr einen Turm biblischen Ausmaßes, bei dem allein schon der Gedanke an einen Aufstieg gottversucht ist, indem ihr über stetig kollabierende Plattformen die Stockwerke empor springt - oder irgendwann abstürzt. Die Horden von Gegnern, die euch buchstäblich zu Fall bringen wollen, machen den Wahnsinn perfekt, doch ihr seid verzweifelt und wart schon vorher nicht ganz bei Sinnen… also wagt ihr euch zu zweit, einer von euch offensiv ausgerichtet, einer defensiv, an eure letzte Aufgabe. Während der offensive Spieler dem Problem der Feindwellen sehr endgültig ein Ende zu machen sucht, wird sein defensiver Gegenpart dafür sorgen, dass ihr nicht schon vor dem Absturz das Zeitliche segnet. Euch beiden steht ein im Spielverlauf wachsendes Arsenal an Waffen, Schilden, Gegenständen und Fähigkeiten zur Verfügung und werdet es auch brauchen, denn wenn auch nur einer von euch endgültig stirbt, war es das. Gebt aufeinander acht, denn alleine seid ihr verloren…
+
+\subsection{Zentrale Spielmechanik}
+Das Spiel arbeitet mit einer vertikalen Map, die in ihrem Verlauf immer schwierigere Herausforderungen mit sich bringt, die als unterschiedliche Level aufgefasst werden. Dabei gibt es zwei Spielercharaktere, die gemeinsam versuchen den Turm über Plattformen zu erklimmen und sich durch Gegnerhorden kämpfen bis schließlich zum Endboss. Es gibt insgesamt zwei Spielercharaktere, die sich gegenseitig ergänzen: Der eine ist offensiv, der andere defensiv ausgerichtet. Der offensive Charakter kann durch Nah- und Fernkampfwaffen den Weg frei kämpfen, hält dafür aber wenig Schaden aus. Der defensive hat die Möglichkeit, durch seinen Schild gegnerische Angriffe abzuwehren und durch das Anwenden von Zaubern bestimmte Vorteile für beide Charakter zu erwirken, wie zum Beispiel Unsichtbarkeit und eine Aura, welche den eingehenden Schaden reduziert - kann selbst aber keinen Schaden an Gegner bewirken.Um den Turm zu erklimmen, stehen Plattformen bereit, die als Stufen verwendet werden können. Hierbei gibt es aber eine Herausforderung: Sobald die Plattform berührt wurde, wird sie instabil und kann die Spieler nur noch für eine kurze Zeit tragen. Lediglich sogenannte “Checkpoints” sind Plattformen, die ewig halten. Nach Erreichen eines neuen Checkpoints, durch Besiegen der Gegner im vorherigen Bereich, steigert sich die Schwierigkeit und man hat ein neues Level erreicht.\\
+Die Mechanik macht es unmöglich, den Turm ohne gutes Zusammenspiel zwischen den beiden Charakteren zu erklimmen und zu einer Herausforderung, wenn beide Charaktere harmonieren.\\
+Das Spiel endet, sobald man den Turm komplett erklommen und den Endboss besiegt hat oder einer der beiden Charaktere endgültig stirbt.\\
+\newpage
+\section{Benutzeroberfläche}
+\subsection{Spieler-Interface}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Images/Spieler-Interface.png}
+    \caption{Grobe Skizze zum Spieler-Interface}
+\end{figure}
+\newpage
+\noindent Das Spieler-Interface ist auf die 2D-Seitenansicht des Turms ausgelegt, den die beiden Spieler gemeinsam erklimmen müssen. Unten links und unten rechts am Bildschirmrand befinden sich die Lebensbalken der Spieler, die ihren aktuellen Gesundheitsstatus anzeigen – links der des defensiven und rechts der des offensiven Spielers. Über jeden Lebensbalken sind in Rechtecken die verfügbaren Items, Zauber und Angriffe der jeweiligen Spieler angeordnet. Nach Nutzung einer Fähigkeit wird bei diesen Symbolen der Cooldown visualisiert, damit die Spieler sehen, wann die jeweilige Fähigkeit wieder verfügbar ist. In der Mitte unten auf dem Bildschirm befinden sich drei Herzen, die die gemeinsamen Wiederbelebungen der Spieler darstellen. Verliert einer der beiden Spieler alle Lebenspunkte, wird automatisch ein Herz verbraucht und der Lebensbalken des Spielers wird vollständig aufgefüllt. Sind jedoch alle drei Herzen aufgebraucht und ein Spieler verliert erneut alle Lebenspunkte, stirbt dieser, und das Spiel endet. Zusätzlich läuft am oberen rechten Bildschirmrand ein Timer, der anzeigt, wie lange das Spiel bereits andauert.\\
+\newpage
+\subsection{Menüstruktur}
+In Abbildung 2 ist die Menüstruktur unseres Spiels dargestellt. Beim Start gelangt der Spieler zunächst ins Hauptmenü. Von hier aus kann man ein neues “Spiel starten”, ein gespeichertes “Spiel laden”, die “Tech-Demo” aufrufen oder zu den Bereichen “Statistiken”, “Achievements” und “Optionen”  wechseln. Mit der “ESC“-Taste kehrt man von der “Tech-Demo”, den “Statistiken”, den “Achievements” und den “Optionen” jederzeit ins Hauptmenü zurück. 
+Wählt man “Spiel laden”, öffnet sich eine Unterkategorie, in der die drei zuletzt gespeicherten Spiele zur Auswahl stehen. Nach der Auswahl eines gespeicherten Spiels wird dieses an der zuletzt gespeicherten Stelle fortgesetzt. Alternativ kann direkt mit “Spiel starten” ein neues Spiel begonnen werden. 
+Während des Spiels kann man das Pausenmenü mit der “ESC“-Taste öffnen. Dort besteht die Möglichkeit, das Spiel fortzusetzen, den aktuellen Spielstand zu speichern oder das Spiel zu beenden. Beim Speichern wird der Fortschritt automatisch in einem der drei verfügbaren Speicherplätze abgelegt. Sind bereits alle drei Speicherplätze belegt, wird der älteste Speicherstand überschrieben, sodass immer die letzten drei gespeicherten Spielstände zur Verfügung stehen.
+Wenn man im Hauptmenü auf “Beenden” klickt, wird das Spiel vollständig geschlossen.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.5]{Images/Menü.png}
+    \caption{Spiel-Menü}
+\end{figure}
+\newpage
+\section{Technische Merkmale}
+\subsection{Verwendete Technologien}
+\subsubsection*{Entwicklungsumgebung}
+\begin{itemize}
+    \item \textbf{IDE / Editor}: JetBrains Rider 2024.2.6 / Visual Studio Community 2022
+    \item \textbf{Programmiersprache}: Microsoft C\# 12.0
+    \item \textbf{Tilemap-Editor}: Tiled zur Erstellung von Levelkarten (Version: 1.8.6)
+    \item \textbf{Versionskontrolle}: Git 2.47
+    \item \textbf{Textsatzsystem}: \LaTeX{} mit Overleaf als Editor / Google Docs
+    \item \textbf{Frameworks}: MonoGame 3.8, .NET 8.0
+    \item \textbf{Bibliotheken}: DotTiled zum Laden und Verwalten von Tilesets aus Tiled
+    \item \textbf{Websites}: draw.io um Menüstruktur zu erstellen
+\end{itemize}
+\subsection{Mindestvoraussetzungen}
+\begin{itemize}
+    \item \textbf{Bildschirm}: Auflösung von 1080p (1920 x 1080)
+    \item \textbf{Maus und Tastatur (optional einen Controller)}
+    \item \textbf{CPU}: AMD Ryzen 3 3200U 2.6 GHz oder vergleichbar
+    \item \textbf{GPU}: Radeon Vega Mobil Gfx 2.60 GHz oder vergleichbar
+    \item \textbf{Arbeitsspeicher (RAM)}: 8 GB
+\end{itemize}
+\newpage
+
+\section{Spiellogik}
+\subsection{Optionen \& Aktionen}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{0.1\textwidth}|p{0.15\textwidth}|p{0.28\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|}
+\hline
+\textbf{ID/Name} & \textbf{Akteure} & \textbf{Ereignisfluss} & \textbf{Anfangs-bedingungen} & \textbf{Abschluss-bedingungen} \\
+\hline
+ID 01 / Seitwärtsbewegung & Spieler defensiv & Eine Eingabetaste zur Seitwärtsbewegung wurde gedrückt.
+Hier: Tasten zum Bewegen (Taste A, Taste D)
+. & Spieler defensiv hat mind. einen LP und in der Richtung, in der sich der Spieler bewegen will, ist kein Hindernis. & Spieler defensiv hat sich nach rechts oder links bewegt (abhängig von der Eingabe). \\
+\hline
+ID 02 / Seitwärtsbewegung & Spieler offensiv & Eine Eingabetaste zur Seitenbewegung wurde gedrückt. Hier: Pfeiltaste links/rechts. & Spieler offensiv hat mind. einen LP und in der Richtung, in der sich der Spieler bewegen will, ist kein Hindernis. & Spieler offensiv hat sich nach der Eingabe nach links oder rechts bewegt (abhängig von der Eingabe). \\
+\hline
+ID 03 / Springen & Spieler defensiv & Die Eingabetaste zum Springen wurde gedrückt. Hier: Die Pfeiltaste nach oben wurde gedrückt.
+ & Der Spieler defensiv hat mind. 1 LP und befindet sich nicht bereits in der Luft. & Der Spieler war in der Luft und hat möglicherweise eine neue Plattform erklommen. \\
+\hline
+ID 04 / Springen & Spieler offensiv & Die Eingabetaste zum Springen wurde gedrückt (Taste 'W'). & Spieler offensiv hat mind. ein LP, führt keine defensive Aktion aus und befindet sich nicht bereits in der Luft. & Der Spieler war in der Luft und hat möglicherweise eine neue Plattform erklommen. \\
+\hline
+\end{tabular}
+\caption{Optionen und Aktionen (Teil 1)}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{0.1\textwidth}|p{0.15\textwidth}|p{0.28\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|}
+\hline
+\textbf{ID/Name} & \textbf{Akteure} & \textbf{Ereignisfluss} & \textbf{Anfangs-bedingungen} & \textbf{Abschluss-bedingungen} \\
+\hline
+ID 05 / Temporärer Schutz für beide Spieler & Spieler defensiv & Spieler defensiv benutzt eine seiner defensiven Fähigkeiten, mit der beide Spieler temporär unbesiegbar sind und keinen Schaden von Gegnern erleiden. & Spieler defensiv hat mind. 1 LP, die Fähigkeit muss vom Spieler defensiv verfügbar sein.
+D.h. eine gewisse Abklingzeit nach Benutzung muss vorüber sein.
+ & Die Animation zum temporären Schild ist vorüber. Jetzt sind beide Spieler wieder vulnerabel und können gegnerischen Schaden bekommen. \\
+\hline
+ID 06 / Heiltrank konsumieren & Beide Spieler & Ein Heiltrank wird konsumiert und die Lebenspunkte der Spieler werden aufgefüllt, sofern diese nicht schon voll aufgefüllt sind. & Ein Heiltrank befindet sich auf einer Plattform; bei Berührung wird er konsumiert. & Der Heiltrank ist nicht mehr sichtbar und die Lebenspunkte sind entsprechend aufgefüllt. \\
+\hline
+ID 07 / Menü öffnen & Beide Spieler & Das Pausemenü wird aufgerufen und das Spiel friert in seinem Zustand ein. & Ein Spieler drückt den Menü-Knopf oder die Escape-Taste. & Der aktuelle Spielzustand ist pausiert und das Interface des Menüs ist zu sehen. \\
+\hline
+ID 08 / Wiederbelebung & Beide Spieler & Der Lebensbalken eines Spielers ist durch eingehenden Schaden auf 0 reduziert. Er steigt mit vollem Lebensbalken an Ort und Stelle wieder ein. & Der Spieler hat 0 LP und es sind noch Wiederbelebungen (Herzen) zur Verfügung. & Eine Wiederbelebung wird aufgebraucht. \\
+\hline
+\end{tabular}
+\caption{Optionen und Aktionen (Teil 2)}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{0.1\textwidth}|p{0.15\textwidth}|p{0.28\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|}
+\hline
+\textbf{ID/Name} & \textbf{Akteure} & \textbf{Ereignisfluss} & \textbf{Anfangs-bedingungen} & \textbf{Abschluss-bedingungen} \\
+\hline
+ID 09 / Nahkampfattacke & Spieler offensiv & Der Spieler führt eine Nahkampfattacke aus. & Spieler offensiv hat mind. 1 LP, hat eine Nahkampfwaffe ausgewählt. & Wenn sich ein Gegner im Angriffsradius befindet, verliert diese Lebenspunkte. Ein Cooldown zum Nahkampf-Angriff wird ausgelöst.
+. \\
+\hline
+ID 10 / Wechsle die Angriffsfähigkeiten & Spieler offensiv & Wechsel zwischen Angriffsfähigkeiten wird durch Tastendruck ausgelöst. & Spieler offensiv hat mind. 1 LP, besitzt mindestens zwei Angriffsfähigkeiten, zwischen welchen gewechselt werden kann.
+ & Der Spieler hat potentiell eine andere Waffe in der Hand. \\
+\hline
+ID 11 / Fernkampf & Spieler offensiv & Der Spieler verfügt über eine oder mehrere Fernkampfwaffen.
+Mit dem Cursor kann man die Waffe zielen.
+ & Die Spieler haben mind. 1 LP & Wenn die linke Maustaste gedrückt ist, werden Kugeln geschossen. Wenn ein Gegner getroffen ist, wird diesem Schaden zugefügt. \\
+\hline
+ID 12 / Gegner verfolgen Spieler & KI & Der Gegner befindet sich in der Reichweite des Spielers und nähert sich diesem, um dem Spieler Schaden auszuteilen. & Der Spieler ist am Leben und befindet sich in der Reichweite des Gegners.
+Es existiert ein Pfad zwischen Gegner und Spieler.
+ & Dynamische Bewegungsanpassung des Gegners.
+Falls sich der Spieler bewegt, passt der Gegner sein neues Angriffsziel entsprechend an.
+
+ \\
+\hline
+\end{tabular}
+\caption{Optionen und Aktionen (Teil 3)}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{0.1\textwidth}|p{0.15\textwidth}|p{0.28\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|}
+\hline
+\textbf{ID/Name} & \textbf{Akteure} & \textbf{Ereignisfluss} & \textbf{Anfangs-bedingungen} & \textbf{Abschluss-bedingungen} \\
+\hline
+ID 13 / Bosskampf & KI & Der Endboss befindet sich in der Reichweite des Spielers und kann diesen mit Fernattacken als auch Nahattacken angreifen. & Der Spieler ist bis zum Endboss vorgedrungen und versucht, diesen zu bezwingen. Der Endboss ist mächtig und verfügt über tödliche Attacken. & Falls der Endboss besiegt wurde, ist das Spiel vorbei und man hat gewonnen. Wenn man durch den Endboss getötet wird und keine Wiederbelebungen mehr frei hat, hat man verloren. \\
+\hline
+ID 14 / Zauber einsetzen & Spieler defensiv & Ein Zauber wird benutzt.
+Hier:
+Eine Eingabetaste wird gedrückt, die einen Zauber bewirkt. 
+
+ & Spieler defensiv hat mind. 1 LP und hat keinen Cooldown auf den Zauber. & Der Zauber hat Auswirkungen auf die Umgebung oder gegnerische Einheiten und löst einen Cooldown auf den eingesetzten Zauber aus. \\
+\hline
+ID 15 / Unsichtbarkeit aktivieren & Spieler defensiv & Der Spieler aktiviert durch eine Eingabetaste die Unsichtbarkeit, um Feinden zu entgehen. & Spieler defensiv hat mind. 1 LP und und hat keinen Cooldown auf der Fähigkeit & Beide Spieler sind für eine kurze Zeit unsichtbar und werden nicht von Gegnern angegriffen, bis die Fähigkeit endet und löst einen Cooldown auf die Fähigkeit aus. \\
+\hline
+ID 16 & Benutzer & Spiel beenden & Der Benutzer ist im Hauptmenü und will das Spiel beenden (initiiert durch einen Knopfdruck). & Der Benutzer wird aufgefordert, den aktuellen Spielstand zu speichern. Die Applikation schließt sich. \\
+\hline
+ID 17 & Benutzer & Neues Spiel starten & Der aktuelle Spielstand ist pausiert und man befindet sich im Hauptmenü bzw. Pausemenü & Der Initialzustand des Spiels ist wiederhergestellt und die Spieler werden zum Start zurückgesetzt mit vollen Lebenspunkten. \\
+\hline
+\end{tabular}
+\caption{Optionen und Aktionen (Teil 4)}
+\end{table}
+\newpage
+\subsection{Spielobjekte}
+\subsubsection*{Charaktere}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{0.05\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|p{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Bezeichnung} & \textbf{Eigenschaften} & \textbf{Typ}\\
+\hline
+01 & Spieler offensiv &
+\begin{itemize}
+    \item Offensiv ausgerichtet
+    \item Fähigkeit 1: Nahkampf
+    \item Fähigkeit 2: Fernkampf
+\end{itemize} & Kontrollierbar, auswählbar, beweglich \\
+\hline
+02 & Spieler defensiv &
+\begin{itemize}
+    \item Defensiv / Unterstüzend ausgerichtet.
+    \item Fähigkeit 1: Zaubertrank
+    \item Fähigkeit 2: Schild
+    \item Fähigkeit 3: Unsichtbarkeit
+    \item Fähigkeit 4: Aura
+\end{itemize} & Kontrollierbar, auswählbar, beweglich \\
+\hline
+03 & Gegner 1 & 
+\begin{itemize}
+    \item Fähigkeit 1: Fliegen
+    \item Fähigkeit 2: Nahkampf
+\end{itemize} & Beweglich, kollidierbar \\
+\hline
+04 & Gegner 2 & 
+\begin{itemize}
+    \item Fähigkeit 1: Fliegen
+    \item Fähigkeit 2: Fernkampf
+\end{itemize} & Beweglich, kollidierbar \\
+\hline
+05 & Endboss & 
+\begin{itemize}
+    \item Fähigkeit 1: Nahkampf
+    \item Fähigkeit 2: Fernkampf
+    \item Fähigkeit 3: Zauber
+\end{itemize} & Beweglich, kollidierbar \\
+\hline
+\end{tabular}
+\caption{Charaktere im Spiel}
+\end{table}
+
+\begin{table}[htbp]
+\subsubsection*{Items}
+\centering
+\begin{tabular}{|p{0.05\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|p{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Bezeichnung} & \textbf{Eigenschaften} & \textbf{Typ} \\
+\hline
+06 & Nahkampfwaffe 1 & Reichweite: gering, Schaden: mittel & Kontrollierbar, auswählbar \\
+\hline
+07 & Fernkampfwaffe 1 & Reichweite: hoch, Schaden: mittel & Kontrollierbar, auswählbar \\
+\hline
+08 & Nahkampfwaffe 2 & Reichweite: gering, Schaden: hoch & Kontrollierbar, auswählbar\\
+\hline
+09 & Fernkampfwaffe 2 & Reichweite: hoch, Schaden: hoch & Kontrollierbar, auswählbar\\
+\hline
+10 & Nahkampfwaffe 3 & Reichweite: Mittel, Schaden: sehr hoch & kontrollierbar, auswählbar\\
+\hline
+11 & Zaubertrank & Erhöht die Angriffsgeschwindigkeit von Spieler offensiv, Benutzer: Spieler defensiv
+ & Kontrollierbar \\
+\hline
+12 & Schild 1 & Wehrt gegnerische Fernkampfschaden ab
+Benutzer: Spieler defensiv, Absorptionsrate: Gering
+ & Auswählbar, Kollidierend \\
+\hline
+13 & Schild 2 & Wehrt gegnerischen Fern- Nahkampfschaden ab
+Benutzer: Spieler defensiv
+Absorptionsrate: Mittel
+ & Auswählbar, Konllidierend \\
+\hline
+14 & Unsichtbarkeit & Schützt Spieler 1 und Spieler 2 vor Angriffenm, Benutzer: Spieler 2
+ & Auswählbar \\
+\hline
+\end{tabular}
+\caption{Items im Spiel}
+\end{table}
+
+\begin{table}[htbp]
+\subsubsection*{Umwelt}
+\centering
+\begin{tabular}{|p{0.05\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|p{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Bezeichnung} & \textbf{Eigenschaften} & \textbf{Typ} \\
+\hline
+15 & Turm & Spielszene & Nicht-Kontrollierbar \\
+\hline
+16 & Wand & Begrenzt das Spielfeld (Turm) & Nicht-Kontrollierbar
+Kollidierend
+ \\
+\hline
+17 & Plattform & Trägt Spieler 1 und Spieler 2
+Lebensdauer: Kurz & Nicht-Kontrollierbar
+Kollidierend \\
+\hline
+18 & Checkpoint-Plattform & Trägt Spieler 1 und Spieler 2 Markiert den Beginn eines neuen Levels Lebensdauer: unendlich
+&Nicht-Kontrollierbar Kollidierend\\
+\hline
+19 & Abgrund & Befindet sich einer der beiden Spieler in der Luft und hat unter sich keine  & Nicht-Kontrollierbar \\
+\hline
+\end{tabular}
+\caption{Umgebungsobjekte im Spiel}
+\end{table}
+
+\begin{table}[htbp]
+\subsubsection*{Einheiten}
+\centering
+\begin{tabular}{|p{0.05\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|p{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Bezeichnung} & \textbf{Eigenschaften} & \textbf{Typ} \\
+\hline
+20 & Schaden & Ein Treffer durch eine Nahkampfwaffe oder Fernkampfwaffe fügt dem getroffenen Spielobjekt Schaden zu & Nicht-Kontrollierbar \\
+\hline
+21 & Lebensbalken & 
+\begin{itemize}
+    \item Jeder Spieler hat einen Lebensbalken, der im Spiel kleiner und größer werden kann.
+
+    \item Lebensbalken = null: Eine Wiederbelebung wird abgezogen, falls vorhanden. Der Lebensbalken ist danach wieder voll
+    \item Der Endboss hat einen Lebensbalken
+
+    \item Lebensbalken = null: Endboss ist tot
+
+\end{itemize} & Nicht-Kontrollierbar \\
+\hline
+22 & Lebenspunkte & Wenn die Lebenspunkte der Gegner auf 0 sinken, sind sie tot. & Nicht-Kontrollierbar \\
+\hline
+\end{tabular}
+\caption{Einheiten im Spiel}
+\end{table}
+
+\begin{table}[htbp]
+\subsection{Statistiken}
+\centering
+\begin{tabular}{ |c|c|p{0.6\textwidth}| }
+\hline
+\textbf{ID} & \textbf{Statistik} & \textbf{Beschreibung} \\
+\hline
+1 & Gesamte besiegte Gegner & Zeigt die Gesamtzahl der Gegner, die von beiden Spielern besiegt wurden. \\
+\hline
+2 & Erklommene Plattformen & Anzahl der Plattformen, die erfolgreich erklommen wurden. \\
+\hline
+3 & Verwendete Zauber & Gesamtzahl der Zauber, die vom defensiven Spieler gewirkt wurden. \\
+\hline
+4 & Ausgeteilter Schaden & Gesamtschaden, den der offensive Spieler an Gegnern verursacht hat. \\
+\hline
+5 & Geblockter Schaden & Gesamtschaden, den der defensive Spieler mit dem Schild geblockt hat. \\
+\hline
+\end{tabular}
+\caption{Statistiken und ihre Beschreibungen}
+\end{table}
+
+\begin{table}[htbp]
+\subsection{Achievements}
+\centering
+\begin{tabular}{ |c|c|p{0.6\textwidth}| }
+\hline
+\textbf{ID} & \textbf{Achievement} & \textbf{Beschreibung} \\
+\hline
+1 & Unbesiegbares Duo & Schließe das Spiel ab, ohne dass einer der Spieler stirbt. \\
+\hline
+2 & Plattform-Profi & Erklimme 50 Plattformen, ohne dass eine unter dir zusammenbricht. \\
+\hline
+3 & Meister der Verteidigung & Blockiere insgesamt 500 Schadenspunkte mit dem Schild. \\
+\hline
+4 & Angriffsexperte & Besiege 100 Gegner mit dem offensiven Spieler. \\
+\hline
+5 & Schnellkletterer & Beende das Spiel in unter 20 Minuten.\\
+\hline
+\end{tabular}
+\caption{Achievements und ihre Beschreibungen}
+\end{table}
+\newpage
+\section{Screenplay}
+\subsection{Konzeptzeichnungen}
+Mögliche Level für das Spiel sind in Abbildung 1 und Abbildung 2 dargestellt. Zu sehen sind Tränke, Plattformen und Checkpoints. [Mit Tiled erstellt]
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Konzeptzeichnung_1.png}
+    \caption{Konzeptzeichnung 1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Konzeptzeichnung_2.png}
+    \caption{Konzeptzeichnung 2}
+\end{figure}
+\newpage
+\subsection{Storyboards}
+Eure Spielercharaktere haben ein Problem: Sie können nicht ohne einander. Wortwörtlich. Seit der Magieexplosion vor vielen Jahren spüren beide, was der jeweils andere spürt, erleiden, was der andere erleidet. Ihre Suche nach Erlösung hat die beiden nun zu unserem Turm geführt: Mit der Macht, die an dessen Spitze zu finden sein soll, würde nicht nur die Seelenverbindung aufzuheben ein leichtes sein - sie soll gottgleiche Fähigkeiten verleihen, die ihnen ermöglichen würden, sich an ihrem Peiniger zu rächen, der ihnen ihren Käfig in Gestalt des jeweils anderen geschaffen hat.
+\newpage
+\section{Glossar}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ |p{0.3\textwidth}|p{0.6\textwidth}| }
+\hline
+ \textbf{Begriff} & \textbf{Beschreibung} \\
+ \hline
+ KI & Die künstliche Intelligenz definiert das Verhalten und die Entscheidungslogik einer Entität im Spiel.\\
+ \hline
+ LP & Lebenspunkte beschreiben, wie viel Schaden eine Entität erleiden darf, bevor sie stirbt.\\
+ \hline
+ Hitbox & Ein Bereich, der die Kollisionszone der Entität definiert und zur Kollisionsprüfung dient.\\
+ \hline
+ Begehbarer Untergrund & Unter einem begehbaren Untergrund verstehen wir primär eine feste Plattform oder einen Boden.\\
+ \hline
+ Cooldown & Die Zeit, die nach der Nutzung einer Fähigkeit oder eines Items vergehen muss, bevor es erneut verwendet werden kann.\\
+ \hline
+ Checkpoint & Ist ein sicherer Bereich, wo keine Gegner erscheinen und sich die Schwierigkeit ändert.
+\\
+ \hline
+ Eingabetaste & Die Taste auf dem Controller oder der Tastatur, die gedrückt werden muss, um eine Aktion auszulösen.\\
+ \hline
+ Temporärer Schutz & Eine defensive Fähigkeit, die vorübergehend verhindert, dass Spieler Schaden erleiden.\\
+ \hline
+ Unsichtbarkeit & Eine Fähigkeit, die es einem Spieler ermöglicht, vorübergehend nicht von Gegnern wahrgenommen zu werden.\\
+ \hline
+ Heiltrank & Ein Trank, der die Gesundheit des Spielers wiederherstellt. \\
+ \hline
+ Zauber & Eine besondere Fähigkeit oder Magie, die der Spieler verwenden kann.\\
+ \hline
+ Schild & Ein Verteidigungsgegenstand, der den Spieler vor Schaden schützt.\\
+ \hline
+ Plattform & Eine Fläche im Spiel, auf die man springen oder sich darauf bewegen kann. \\
+ \hline
+ Schaden & Die Menge an Schaden, die einem Spieler oder Gegner zugefügt wird.\\
+ \hline
+ SP1 & Spieler defensiv\\
+ \hline
+ SP2 & Spieler offensiv\\
+ \hline
+  Endboss & Der letzte, sehr starke Gegner, der am Ende des Spiels erscheint.\\
+  \hline
+\end{tabular}
+\caption{Glossar}
+\end{table}
+\end{document}

@@ -1,0 +1,20 @@
+{
+  "maps": [
+    {
+      "fileName": "tech_demo1",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "fileName": "tech_demo2",
+      "x": 0,
+      "y": -1088
+    },
+    {
+        "fileName": "tech_demo3",
+        "x": 0,
+        "y": -2176
+    }
+  ],
+  "type": "world"
+}
